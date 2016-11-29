@@ -1,0 +1,25 @@
+{
+  "name": "alphataufoundation_frontend",
+  "description": "Front end packages for the alpha tau foundation website",
+  "main": "index.html",
+  "authors": [
+    "lucienbrule <lucien@lucienbrule.com>"
+  ],
+  "license": "Apache 2",
+  "keywords": [
+    "front",
+    "ned"
+  ],
+  "homepage": "https://github.com/LucienBrule/AlphaTauFoundation",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "material-design-lite": "^1.2.1"
+  }
+}

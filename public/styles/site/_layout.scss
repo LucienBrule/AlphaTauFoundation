@@ -1,16 +1,33 @@
-#header {
-	margin-top: 30px;
+$font-stack:consolas,monospace;
+$color-1: red;
+
+* {
+	margin: 0;
+	padding: 0;
 }
 
-#footer {
-	margin-top: 30px;
-	border-top: 1px solid #eeeeee;
-	padding-top: 30px;
-	color: #777777;
+body {
+	height: 120vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	background-color: $color-1;
 }
 
-.gallery-image img{
-    display: block;
-    max-width: 100%;
-    height: auto;
+header {
+	background-color: green;
+	display: flex;
+	flex-direction: row;
+	align-self: flex-start;
+	margin-bottom: 20px;
+}
+
+main{
+	align-self: stretch;
+}
+
+
+footer {
+	display:block;
+	align-self: flex-end;
 }
