@@ -6,12 +6,12 @@
 		{% if data.category %}
 			{% set title = data.category.name %}
 		{% endif %}
-		<h1>{{ title }}</h1>
+		<h3>{{ title }}</h3>
 	</div>
 {% endblock %}
 
 {% block content %}
-	<div class="container">
+	<div class="container column_container">
 		<div class="row">
 			<div class="col-sm-8 col-md-9">
 				{% if (filters.category) and (data.category == false) %}
@@ -19,26 +19,30 @@
 				{% else %}
 					{% if data.posts.results.length %}
 						{% if data.posts.totalPages > 1 %}
-							<h4 class="text-weight-normal">Showing 
+							<h4 class="text-weight-normal">Showing
 								<strong>{{ data.posts.first }}</strong>
-								to 
+								to
 								<strong>{{ data.posts.last }}</strong>
-								of 
+								of
 								<strong>{{ data.posts.total }}</strong>
 								posts.
 							</h4>
 						{% else %}
-							<h4 class="text-weight-normal">Showing {{ utils.plural(data.posts.results.length, "* post") }}.</h4>
+							<i class="text-weight-normal">Showing {{ utils.plural(data.posts.results.length, "* post") }}.</i>
 						{% endif %}
-						<div class="blog">
-							{% for post in data.posts.results %}
-								<div class="post" data-ks-editable="editable(user, { list: 'Post', id: post.id })">
-									<h2>
-										<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
-									</h2>
+						<!-- <div class="blog"> -->
+						<div class="">
+								{% for post in data.posts.results %}
+								<div class="card-wide mdl-card mdl-shadow--2dp column_item" data-ks-editable="editable(user, { list: 'Post', id: post.id })">
+									<div class="mdl-card__title" style="background: url({{ post._.image.fit(160,160)}}) center / cover;">
+										<h2 class="mdl-card__title-text"><a class = "post_title" href="/blog/post/{{ post.slug }}">{{ post.title }}</a></h2>
+									</div>
+									<div>
+										<hr />
+									<p>{{ post.content.brief | striptags }}</p>
 									<p class="lead text-muted">Posted
 										{% if post.publishedDate %}
-											<br>on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
+											on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
 										{% endif %}
 										{% if post.categories and post.categories.length %}
 											<br>in
@@ -48,19 +52,18 @@
 											{% endfor %}
 										{% endif %}
 										{% if post.author %}
-											<br>by {{ post.author.name.first }}
+											by <i>{{ post.author.name.first }}</i>
 										{% endif %}
 									</p>
-									{% if post.image.exists %}
-										<img src="{{ post._.image.fit(160,160) }}" class="img pull-right">
-									{% endif %}
-									<p>{{ post.content.brief | striptags }}</p>
+								</div>
+								<div class="mdl-card__actions mdl-card--border">
 									{% if post.content.extended %}
-										<p class="read-more">
-											<a href="/blog/post/{{ post.slug }}">Read more...</a>
-										</p>
+						      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/blog/post/{{ post.slug }}">
+									Read more...
+									</a>
 									{% endif %}
 								</div>
+							</div>
 							{% endfor %}
 						</div>
 						{% if data.posts.totalPages > 1 %}

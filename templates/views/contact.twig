@@ -19,12 +19,14 @@
 						{% if validationErrors.name %}
 							{% set className = "has-error" %}
 						{% endif %}
+						<div class="mdl-textfield mdl-js-textfield">
 						<div class="form-group {{ className }}">
-							<label>
-								<span>Name</span>
-								<input type="text" name="name.full" value="{{ formData['name.full'] | default('') }}" class="form-control">
+								<input class="mdl-textfield__input" type="text" name="name.full" value="{{ formData['name.full'] | default('') }}" class="form-control">
+								<label class="mdl-textfield__label" for="sample1">Name</label>
 							</label>
 						</div>
+					</div>
+
 						{% set className = "" %}
 						{% if validationErrors.email %}
 							{% set className = "has-error" %}

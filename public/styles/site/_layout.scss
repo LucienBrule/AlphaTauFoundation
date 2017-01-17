@@ -1,33 +1,89 @@
 $font-stack:consolas,monospace;
-$color-1: red;
+$color-1: whitesmoke;
 
-* {
-	margin: 0;
-	padding: 0;
+.mdl-layout__container{
+  position: absolute;
+  top: 0;
+}
+html{
+  color: whitesmoke;
+  background: rgb(226, 220, 79);
+}
+body{
+  display: flex;
+  flex-direction: column;
 }
 
-body {
-	height: 120vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	background-color: $color-1;
+html,body{
+  background-color: #3F3F3F;
 }
+nav{
 
-header {
-	background-color: green;
-	display: flex;
-	flex-direction: row;
-	align-self: flex-start;
-	margin-bottom: 20px;
 }
-
 main{
-	align-self: stretch;
-}
+  // flex:1;
+  height: 100vh;
+  align-content: stretch;
 
-
-footer {
-	display:block;
-	align-self: flex-end;
 }
+footer{
+  background-color: rgb(0, 0, 0);
+}
+a{
+  text-decoration: none;
+}
+.column_container{
+  padding-top: 1em;
+    display: flex !important;
+    align-items: center !important;
+    flex-direction: column !important;
+
+}
+.column_item{
+  flex-grow: 1;
+}
+.card-wide.mdl-card {
+  width: 512px;
+  color:black;
+}
+.card-wide-mdl-card a{
+  color: black;
+}
+.card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('../assets/demos/welcome_card.jpg') center / cover;
+}
+.card-wide > .mdl-card__menu {
+  color: #fff;
+}
+// * {
+// 	margin: 0;
+// 	padding: 0;
+// }
+//
+// body {
+// 	min-height: 120vh;
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: flex-start;
+// 	background-color: $color-1;
+// }
+//
+// header {
+// 	background-color: green;
+// 	display: flex;
+// 	flex-direction: row;
+// 	align-self: flex-start;
+// 	margin-bottom: 20px;
+// }
+//
+// main{
+// 	align-self: stretch;
+// }
+//
+//
+// footer {
+// 	display:block;
+// 	align-self: flex-end;
+// }
